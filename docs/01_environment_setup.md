@@ -88,3 +88,13 @@ nproc
 ### Status
 
 Operating system installation and initial system validation completed.
+
+
+### Package Updates and Git Installation
+
+- Updated the Ubuntu package index using `sudo apt update`.
+- Upgraded installed packages using `sudo apt upgrade`.
+- Installed Git using `sudo apt install git`.
+- Verified Git installation using `git --version`.
+
+**Note:** Record the actual completion status and Git version after running these commands.
