@@ -47,3 +47,44 @@ df -h
 ## 5. Results and Screenshots
 
 Screenshots and verified results will be added as the work progresses.
+
+
+
+
+## 4. System Information and Validation
+
+### Operating System
+
+- Distribution: Ubuntu
+- Version: 26.04.1 LTS
+- Virtualization platform: Oracle VirtualBox
+
+### Virtual Machine Resources
+
+| Resource | Observed value |
+|---|---|
+| RAM | 10 GiB |
+| CPU cores | 6 |
+| Root filesystem size | 16 GiB |
+| Available root disk space | 8.6 GiB |
+| Swap memory | 0 GiB |
+
+### Validation Commands
+
+```bash
+lsb_release -a
+free -h
+df -h /
+nproc
+```
+
+### Initial Observations
+
+- Ubuntu boots successfully inside VirtualBox.
+- The operating system version and allocated resources have been verified.
+- The available disk space is limited for the planned EDA tools and SKY130A PDK setup.
+- Virtual disk capacity will be reviewed before installing project dependencies.
+
+### Status
+
+Operating system installation and initial system validation completed.
