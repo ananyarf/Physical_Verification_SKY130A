@@ -134,3 +134,123 @@ Git is installed, and the project repository is available locally in Ubuntu.
 - Verified Git installation using `git --version`.
 
 **Note:** Record the actual completion status and Git version after running these commands.
+
+## Magic VLSI Installation on Ubuntu — Errors and Fixes
+
+During the setup of the physical verification flow for SKY130A, I encountered compilation issues while building Magic VLSI from source on Ubuntu. This section documents the errors and their solutions.
+
+### 1. Clone the Magic Source Code
+
+```bash
+git clone git://opencircuitdesign.com/magic
+cd magic
+```
+
+Install the basic Tcl/Tk development dependencies:
+
+```bash
+sudo apt update
+sudo apt install tcl-dev tk-dev
+```
+
+### 2. GCC 15 Compilation Error
+
+**Error encountered:**
+
+```text
+error: too many arguments to function 'WindAddCommand'
+error: too many arguments to function 'WindMove'
+error: too many arguments to function 'WindSetWindowAreas'
+error: too many arguments to function 'WindAddClient'
+```
+
+**Cause:**
+
+The default C language standard used by GCC 15 can cause compatibility issues with older C code.
+
+**Solution:**
+
+Clean the previous build and configure Magic using GNU C17:
+
+```bash
+make clean
+./configure CFLAGS="-std=gnu17"
+```
+
+If configuration completes successfully, compile the source:
+
+```bash
+make
+```
+
+### 3. Missing OpenGL/GLU Header
+
+**Error encountered:**
+
+```text
+fatal error: GL/glu.h: No such file or directory
+```
+
+**Cause:**
+
+The required OpenGL/GLU development headers were missing from the system.
+
+**Solution:**
+
+Install the required development packages:
+
+```bash
+sudo apt update
+sudo apt install libgl-dev libglu1-mesa-dev
+```
+
+After installation, run the compilation again:
+
+```bash
+make
+```
+
+### 4. Install Magic
+
+After successful compilation, install Magic:
+
+```bash
+sudo make install
+```
+
+Verify that the installation is accessible:
+
+```bash
+which magic
+```
+
+### 5. Optional Dependencies
+
+The Magic configuration script may report that OpenGL, Cairo, or LaTeX documentation support is unavailable.
+
+These features are not all mandatory for a basic build.
+
+For OpenGL support, install:
+
+```bash
+sudo apt install libgl-dev libglu1-mesa-dev
+```
+
+For Cairo support, install:
+
+```bash
+sudo apt install libcairo2-dev
+```
+
+LaTeX-related dependencies are needed when regenerating the documentation, not simply to compile and run Magic.
+
+### 6. Important Notes
+
+- Run `./configure` again after changing compiler flags or installing missing development libraries.
+- Use `make clean` before rebuilding when changing compilation settings.
+- If compilation fails, read the first actual compiler error rather than focusing only on the final `make` error.
+- The commands and fixes documented here were tested during setup on Ubuntu with GCC 15.2.0. Results may vary with other operating system and compiler versions.
+
+**Status:** Magic compiled successfully after using GNU C17 and installing the missing OpenGL/GLU development packages. Installation was then performed using `sudo make install`.
+
+
