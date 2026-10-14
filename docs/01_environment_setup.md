@@ -103,6 +103,31 @@ Operating system installation and initial system validation completed.
 
 **Status:** Update each item according to the actual result.
 
+
+
+## 5. Git Installation and Repository Setup
+
+### Git Installation
+
+- Git version: 2.53.0
+- Installation verified using `git --version`.
+
+### Repository Setup
+
+- Personal GitHub fork created.
+- Repository cloned into the Ubuntu environment.
+- Repository files inspected.
+- Git working-tree status checked.
+
+### Evidence
+
+- `03_git_version.png` — Git version verification.
+- `04_git_repository_status.png` — Repository status.
+
+### Outcome
+
+Git is installed, and the project repository is available locally in Ubuntu.
+
 - Updated the Ubuntu package index using `sudo apt update`.
 - Upgraded installed packages using `sudo apt upgrade`.
 - Installed Git using `sudo apt install git`.
