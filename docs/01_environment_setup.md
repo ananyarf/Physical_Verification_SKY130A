@@ -92,6 +92,17 @@ Operating system installation and initial system validation completed.
 
 ### Package Updates and Git Installation
 
+
+
+### Git Setup and Repository Access
+
+- Git version: 2.53.0
+- Configured Git username and email.
+- Cloned the personal SKY130A Physical Verification repository.
+- Inspected the repository files and verified the Git working tree.
+
+**Status:** Update each item according to the actual result.
+
 - Updated the Ubuntu package index using `sudo apt update`.
 - Upgraded installed packages using `sudo apt upgrade`.
 - Installed Git using `sudo apt install git`.
