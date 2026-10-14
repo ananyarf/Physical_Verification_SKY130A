@@ -254,3 +254,22 @@ LaTeX-related dependencies are needed when regenerating the documentation, not s
 **Status:** Magic compiled successfully after using GNU C17 and installing the missing OpenGL/GLU development packages. Installation was then performed using `sudo make install`.
 
 
+### 7. Verify the Installation
+
+Check the installed executable path:
+
+```bash
+which magic
+```
+
+Launch Magic:
+
+```bash
+magic
+```
+
+**Result:** Magic launches successfully on Ubuntu, confirming that the installation works.
+
+
+
+
